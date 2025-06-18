@@ -9,13 +9,13 @@ pipeline {
         }
         stage('Install dependencies') {
             steps {
-                bat 'python -m venv venv'
-                bat './venv/bin/pip install -r requirements.txt'
+                sh 'python -m venv venv'
+                sh './venv/bin/pip install -r requirements.txt'
             }
         }
         stage('Run tests') {
             steps {
-                bat './venv/bin/pytest --maxfail=1 --disable-warnings'
+                sh './venv/bin/pytest --maxfail=1 --disable-warnings'
             }
         }
     }
